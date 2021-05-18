@@ -2,28 +2,28 @@
 const submitData = (userName, userEmail) => {
     const userData = {
         name:userName,
-        email:userEmail, 
+        email:userEmail,
     };
 
     const configObj = {
-        method: "POST", 
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
-        }, 
+        },
         body: JSON.stringify(userData)
     };
 
     return fetch("http://localhost:3000/users", configObj)
         .then(function(response){
-            return response.json(); 
+            return response.json();
         })
         .then(function(object){
-            const newObj = object.id; 
-            document.body.append(newObj);  
+            const newObj = object.id;
+            document.body.append(newObj);
         })
         .catch (function(error){
             alert("Unauthorized Access");
-            document.body.append(error.message); 
+            document.body.append(error.message);
         });
 };
